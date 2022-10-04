@@ -13,7 +13,7 @@ const layout = [
 
 const layout1 = [
   { i: "a", x: 0, y: 0, w: 3, h: 8, static: true },
-  { i: "b", x: 3, y: 0, w: 3, h: 8, minW: 3, maxW: 3 },
+  { i: "b", x: 3, y: 0, w: 3, h: 8, minW: 3, maxW: 4 },
   { i: "c", x: 6, y: 0, w: 6, h: 8},
   { i: "d", x: 0, y: 1, w: 3, h: 8},
   { i: "e", x: 3, y: 1, w: 3, h: 8},
@@ -23,9 +23,9 @@ const layout2 = [
   { i: "a", x: 0, y: 0, w: 6, h: 8, static: true },
   { i: "b", x: 6, y: 0, w: 6, h: 8, minW: 3, maxW: 6 },
   { i: "c", x: 0, y: 1, w: 12, h: 8},
-  { i: "d", x: 0, y: 3, w: 6, h: 8},
-  { i: "e", x: 6, y: 3, w: 6, h: 8},
-  { i: "f", x: 12, y: 4, w: 6, h: 8},
+  { i: "d", x: 0, y: 2, w: 6, h: 8},
+  { i: "e", x: 6, y: 2, w: 6, h: 8},
+  { i: "f", x: 12, y: 3, w: 12, h: 8},
 ];
 
 const layouts = {
@@ -41,25 +41,12 @@ const Item = styled.div`
 
 function Demo() {
   return ( 
-    <GridLayout
-      className="layout"
-      layout={layout}
-      cols={12}
-      rowHeight={30}
-      width={1200}
-    >
-      <Item key="a">a</Item>
-      <Item key="b">b</Item>
-      <Item key="c">c</Item>
-      <Item key="d">d</Item>
-      <Item key="e">e</Item>
-      <Item key="f">f</Item>
-    </GridLayout>
-    // <ResponsiveGridLayout
+    // <GridLayout
     //   className="layout"
-    //   layouts={layouts}
-    //   // breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
-    //   // cols={{ lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 }}
+    //   layout={layout}
+    //   cols={12}
+    //   rowHeight={30}
+    //   width={1200}
     // >
     //   <Item key="a">a</Item>
     //   <Item key="b">b</Item>
@@ -67,7 +54,21 @@ function Demo() {
     //   <Item key="d">d</Item>
     //   <Item key="e">e</Item>
     //   <Item key="f">f</Item>
-    // </ResponsiveGridLayout>
+    // </GridLayout>
+    <ResponsiveGridLayout
+      className="layout"
+      layouts={layouts}
+      rowHeight={30} width={1200}
+      breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
+      cols={{ lg: 12, md: 12, sm: 12, xs: 12, xxs: 12 }}
+    >
+      <Item key="a">a</Item>
+      <Item key="b">b</Item>
+      <Item key="c">c</Item>
+      <Item key="d">d</Item>
+      <Item key="e">e</Item>
+      <Item key="f">f</Item>
+    </ResponsiveGridLayout>
   );
 }
 
